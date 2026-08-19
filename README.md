@@ -3,17 +3,17 @@
 ## 0 所需要的软件以及安装
 1 conda可直接安装以下几个软件
 
-  bwa samtools bcftools whatshap
+	bwa samtools bcftools whatshap
   
 2 工具包
 
 mask这一步所需要的seqbility工具包下载链接如下
 
-  wget https://github.com/chaimol/runsmcpp/tree/master/seqbility-20091110
+	wget https://github.com/chaimol/runsmcpp/tree/master/seqbility-20091110
 
 msmc2输入文件前处理所需要的工具包下载地址如下
 
-  wget https://github.com/stschiff/msmc-tools
+	wget https://github.com/stschiff/msmc-tools
 
 ## 1 制作参考基因组的mask文件（不建议用msmc2给的脚本运行不知道什么bug运行速度非常慢）
 
@@ -84,3 +84,16 @@ msmc2输入文件前处理所需要的工具包下载地址如下
 	done < sample.txt
 
 **需要特别注意如果需要进行relative cross-coalescence rate分析就一定要进行分型这一步操作，msmc2文献中特别强调了这个问题**
+
+## 5 运行n次MSMC2重复
+
+		bash run_msmc2_random.sh \
+		    --repeat 1 \
+		    --pop1 CIIIH \
+		    --pop2 CIIID \
+		    --thread 8 \
+		    --sample_mask ~/msmc2/mask_bed \
+		    --genome_mask_prefix ~/msmc2/SNPable/genome \
+		    --vcf ~/msmc2/phase_vcf \
+		    --msmc_tools ~/software/msmc-tools \
+		    --Chr ~/msmc2/Chr.txt
