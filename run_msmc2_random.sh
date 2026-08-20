@@ -849,9 +849,9 @@ for ((rep=1; rep<=REPEAT; rep++)); do
 
 
     python "$COMBINE_CROSSCOAL" \
-        "$ACROSS_OUT" \
-        "$POP1_OUT" \
-        "$POP2_OUT" \
+        "${ACROSS_OUT}.final.txt" \
+        "${POP1_OUT}.final.txt" \
+        "${POP2_OUT}.final.txt" \
         > "$COMBINED_OUT"
 
 
